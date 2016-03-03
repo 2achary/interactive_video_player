@@ -1,0 +1,144 @@
+body{
+  margin:0;
+  font-family: Arial;
+  font-size: .8rem;
+}
+.container{
+  max-width: 95%;
+  margin: 0 auto;
+}
+video{
+  display:block;
+  width: 100%;
+  height: 100%;
+}
+.highlight{
+  color: orange;
+}
+
+
+
+
+
+
+
+
+*{
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+}
+#video-container {
+	width: 100%;
+	position: relative;
+	margin:0;
+  margin-bottom: -43px;
+}
+
+#video{
+	width: 100%;
+}
+
+#video-controls {
+	position: relative;
+	margin: 0;
+	top: -44px;
+	/*bottom: 0;
+	left: 0;
+	right: 0;*/
+	padding: 5px;
+	opacity: 0;
+	-webkit-transition: opacity .3s;
+	-moz-transition: opacity .3s;
+	-o-transition: opacity .3s;
+	-ms-transition: opacity .3s;
+	transition: opacity .3s;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#video-container:hover #video-controls {
+	opacity: 1;
+}
+
+#video-container:hover .buffered {
+	top: -41px;
+}
+
+#video-container:hover .progress {
+	top: -44px;
+}
+
+button, label {
+	min-height: 25px;
+	min-width: 30px;
+	padding: 8px;
+	background: rgba(0,0,0,0);
+	border: 0;
+	color: #EEE;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+#play-pause {
+	background: rgba(0,0,0,0) url("icons/play-icon.png") center/15px no-repeat;
+}
+#full-screen{
+	background: rgba(0,0,0,0) url("icons/fullscreen-icon.png") center/15px no-repeat;
+	float: right;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+#seek-bar {
+	max-width:60%;
+	margin: 0 12px;
+}
+
+#volume-bar {
+	width: 60px;
+}
+
+
+
+.buffered {
+  height: 3px;
+  position: relative;
+  background: #555;
+  width: 100%;
+  top: -6px;
+  transition: top .3s;
+  -webkit-transition: top .3s;
+	-moz-transition: top .3s;
+	-o-transition: top .3s;
+	-ms-transition: top .3s;
+}
+
+#buffered-amount {
+  display: block;
+  height: 100%;
+  background-color: #777;
+  width: 0;
+}
+
+.progress {
+  top: -9px;
+  height: 3px;
+  position: relative;
+  width: 100%;
+  transition: top 3s;
+  -webkit-transition: top .3s;
+	-moz-transition: top .3s;
+	-o-transition: top .3s;
+	-ms-transition: top .3s;
+}
+
+#progress-amount {
+  display: block;
+  height: 100%;
+  background-color: orange;
+  width: 0;
+}
