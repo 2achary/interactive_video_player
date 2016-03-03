@@ -34,8 +34,6 @@ timeMap = {
   16: [57.780, 60.150]
 };
 
-
-
 $(document).ready(function() {
 
 	// video
@@ -48,10 +46,9 @@ $(document).ready(function() {
 	var $currentTime = $('#current-time');
   var videoDom = $video.get(0);
 
-
 	// Event listener for the play/pause button
   $playButton.on("click", function() {
-		if ($video.get(0).paused == true) {
+		if ($video.get(0).paused === true) {
 			// Play the video
 			$video.get(0).play();
 
@@ -69,10 +66,9 @@ $(document).ready(function() {
 		}
 	});
 
-
 	// Event listener for the mute button
 	$muteButton.on("click", function() {
-		if ($video.get(0).muted == false) {
+		if ($video.get(0).muted === false) {
 			// Mute the video
 			$video.get(0).muted = true;
 
@@ -87,7 +83,6 @@ $(document).ready(function() {
 		}
 	});
 
-
 	// Event listener for the full-screen button
 	$fullScreenButton.on("click", function() {
 		if ($video.get(0).requestFullscreen) {
@@ -98,7 +93,6 @@ $(document).ready(function() {
 			$video.get(0).webkitRequestFullscreen(); // Chrome and Safari
 		}
 	});
-
 
 	// Event listener for the seek bar
 	$('.progress').on("click", function(e) {
@@ -115,11 +109,10 @@ $(document).ready(function() {
 		$video.get(0).currentTime = time;
 	});
 
-
 	// Update the seek bar as the video plays
 	$video.on("timeupdate", function() {
 		// Calculate the slider value
-    var dur = $video.get(0).duration
+    var dur = $video.get(0).duration;
 		var value = (100 / dur) * $video.get(0).currentTime;
 
 		// Update the slider value
@@ -132,11 +125,13 @@ $(document).ready(function() {
 	// Pause the video when the seek handle is being dragged
 	$('.progress').on("mousedown", function() {
 		$video.get(0).pause();
+    $playButton.css('background', 'url("icons/pause-icon.png") center/15px no-repeat');
 	});
 
 	// Play the video when the seek handle is dropped
 	$('.progress').on("mouseup", function() {
 		$video.get(0).play();
+    $playButton.css('background', 'url("icons/play-icon.png") center/15px no-repeat');
 	});
 
   videoDom.addEventListener('progress', function() {

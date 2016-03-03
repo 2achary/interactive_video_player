@@ -38,6 +38,7 @@ video{
 	position: relative;
 	margin: 0;
 	top: -42px;
+	height: 42px;
 	padding: 5px;
   max-height: 30px;
 	opacity: 0;
@@ -63,7 +64,7 @@ video{
   vertical-align: middle;
 }
 button, label {
-	min-height: 25px;
+	height: 25px;
 	min-width: 30px;
 	padding: 8px;
 	background: rgba(0,0,0,0);
