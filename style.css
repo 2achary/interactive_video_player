@@ -1,3 +1,9 @@
+/*
+  Base Styles
+*/
+*{
+	box-sizing: border-box;
+}
 body{
   margin:0;
   font-family: Arial;
@@ -15,9 +21,6 @@ video{
 .highlight{
   color: orange;
 }
-*{
-	box-sizing: border-box;
-}
 #video-container {
 	width: 100%;
 	position: relative;
@@ -27,13 +30,14 @@ video{
 #video{
 	width: 100%;
 }
+
+/*
+  Video controls
+*/
 #video-controls {
 	position: relative;
 	margin: 0;
 	top: -42px;
-	/*bottom: 0;
-	left: 0;
-	right: 0;*/
 	padding: 5px;
   max-height: 30px;
 	opacity: 0;
@@ -44,17 +48,8 @@ video{
 	transition: opacity .3s;
 	background-color: rgba(0, 0, 0, 0.5);
 }
-
 #video-container:hover #video-controls {
 	opacity: 1;
-}
-
-#video-container:hover .buffered {
-	top: -38px;
-}
-
-#video-container:hover .progress {
-	top: -41px;
 }
 #current-time{
   color:white;
@@ -92,18 +87,18 @@ button, label {
   display: inline-block;
   float:right;
 }
-
 button:hover {
 	cursor: pointer;
 }
 
-#seek-bar {
-	max-width:60%;
-	margin: 0 12px;
+/*
+  Progress and buffered bar
+*/
+#video-container:hover .buffered {
+	top: -38px;
 }
-
-#volume-bar {
-	width: 60px;
+#video-container:hover .progress {
+	top: -41px;
 }
 .buffered {
   height: 3px;
@@ -117,14 +112,12 @@ button:hover {
 	-o-transition: top .3s;
 	-ms-transition: top .3s;
 }
-
 #buffered-amount {
   display: block;
   height: 100%;
   background-color: #777;
   width: 0;
 }
-
 .progress {
   top: -9px;
   height: 3px;
@@ -136,14 +129,15 @@ button:hover {
 	-o-transition: top .3s;
 	-ms-transition: top .3s;
 }
-
 #progress-amount {
   display: block;
   height: 100%;
   background-color: orange;
   width: 0;
 }
-
+/*
+  Media Queries
+*/
 @media screen and (min-width: 768px){
   body{
      max-width: 50%;
