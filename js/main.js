@@ -45,18 +45,12 @@ $(document).ready(function() {
 	var $playButton = $("#play-pause");
 	var $muteButton = $("#mute");
 	var $fullScreenButton = $("#full-screen");
-
-	// Sliders
-	var $seekBar = $("#seek-bar");
 	var $currentTime = $('#current-time');
-	var $volumeBar = $("#volume-bar");
-
   var videoDom = $video.get(0);
 
 
-
 	// Event listener for the play/pause button
-	$playButton.on("click", function() {
+  $playButton.on("click", function() {
 		if ($video.get(0).paused == true) {
 			// Play the video
 			$video.get(0).play();
@@ -83,13 +77,13 @@ $(document).ready(function() {
 			$video.get(0).muted = true;
 
 			// Update the button text
-			$muteButton.html("Unmute");
+			$muteButton.css('background', 'url("icons/volume-off-icon.png") center/15px no-repeat');
 		} else {
 			// Unmute the video
 			$video.get(0).muted = false;
 
 			// Update the button text
-			$muteButton.html("Mute");
+			$muteButton.css('background', 'url("icons/volume-on-icon.png") center/15px no-repeat');
 		}
 	});
 
@@ -129,7 +123,6 @@ $(document).ready(function() {
 		var value = (100 / dur) * $video.get(0).currentTime;
 
 		// Update the slider value
-		$seekBar.val(value);
 		var currentSeconds = $video.get(0).currentTime;
 		// var seconds = Math.floor(currentSeconds);
 		var timeString = prettify_duration(currentSeconds) + ' / ' + prettify_duration(dur);
@@ -163,12 +156,6 @@ $(document).ready(function() {
       $('#progress-amount').css('width', ((videoDom.currentTime / duration)*100) + "%");
     }
   });
-
-	// Event listener for the volume bar
-	$volumeBar.on("change", function() {
-		// Update the video volume
-		$video.get(0).volume = $volumeBar.val();
-	});
 });
 
 function str_pad_left(string,pad,length) {

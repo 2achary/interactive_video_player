@@ -15,19 +15,8 @@ video{
 .highlight{
   color: orange;
 }
-
-
-
-
-
-
-
-
 *{
 	box-sizing: border-box;
-}
-body{
-	margin: 0;
 }
 #video-container {
 	width: 100%;
@@ -35,15 +24,13 @@ body{
 	margin:0;
   margin-bottom: -43px;
 }
-
 #video{
 	width: 100%;
 }
-
 #video-controls {
 	position: relative;
 	margin: 0;
-	top: -44px;
+	top: -42px;
 	/*bottom: 0;
 	left: 0;
 	right: 0;*/
@@ -62,11 +49,16 @@ body{
 }
 
 #video-container:hover .buffered {
-	top: -41px;
+	top: -38px;
 }
 
 #video-container:hover .progress {
-	top: -44px;
+	top: -41px;
+}
+#current-time{
+  color:white;
+  height:25px;
+  line-height: 25px;
 }
 
 button, label {
@@ -86,7 +78,12 @@ button, label {
 }
 #full-screen{
 	background: rgba(0,0,0,0) url("icons/fullscreen-icon.png") center/15px no-repeat;
-	float: right;
+}
+#mute{
+  background: rgba(0,0,0,0) url("icons/volume-on-icon.png") center/15px no-repeat;
+}
+.controls-right{
+  float:right;
 }
 
 button:hover {
@@ -101,9 +98,6 @@ button:hover {
 #volume-bar {
 	width: 60px;
 }
-
-
-
 .buffered {
   height: 3px;
   position: relative;
