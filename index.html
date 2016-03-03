@@ -10,6 +10,7 @@
 		<!-- Video -->
 		<video id="video">
       <source src='video/video.mp4' type='video/mp4' captions>
+      <source src='video/video.ogg' type='video/ogg' captions>
       <track label='English' kind='subtitles' srclang='en' src='video/captions.vtt'>
 		</video>
 		<!-- Video Controls -->
@@ -22,9 +23,9 @@
     </div>
 
     <div id="video-controls">
+  			<button type="button" id="play-pause" class="play"></button>
+  			<span id="current-time">00:00 / 00:00</span>
 
-			<button type="button" id="play-pause" class="play"></button>
-			<span id="current-time">00:00 / 00:00</span>
       <div class="controls-right">
         <button type="button" id="mute"></button>
   			<button type="button" id="full-screen"></button>

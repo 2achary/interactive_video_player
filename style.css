@@ -35,6 +35,7 @@ video{
 	left: 0;
 	right: 0;*/
 	padding: 5px;
+  max-height: 30px;
 	opacity: 0;
 	-webkit-transition: opacity .3s;
 	-moz-transition: opacity .3s;
@@ -60,7 +61,12 @@ video{
   height:25px;
   line-height: 25px;
 }
-
+#play-pause, #current-time{
+  display: inline;
+  height:25px;
+  line-height: 25px;
+  vertical-align: middle;
+}
 button, label {
 	min-height: 25px;
 	min-width: 30px;
@@ -83,6 +89,7 @@ button, label {
   background: rgba(0,0,0,0) url("icons/volume-on-icon.png") center/15px no-repeat;
 }
 .controls-right{
+  display: inline-block;
   float:right;
 }
 
@@ -135,4 +142,11 @@ button:hover {
   height: 100%;
   background-color: orange;
   width: 0;
+}
+
+@media screen and (min-width: 768px){
+  body{
+     max-width: 50%;
+     margin: 0 auto;
+   }
 }
