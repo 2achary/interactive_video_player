@@ -4,7 +4,16 @@
 *{
 	box-sizing: border-box;
 }
+html{
+  height: 100%;
+  background-color: #eee;
+}
+p{
+  font-size: 0.7rem;
+}
 body{
+  background-color: white;
+  height: 100%;
   margin:0;
   font-family: Arial;
   font-size: .8rem;
@@ -25,7 +34,7 @@ video{
 	width: 100%;
 	position: relative;
 	margin:0;
-  margin-bottom: -43px;
+  margin-bottom: -35px;
 }
 #video{
 	width: 100%;
@@ -37,10 +46,9 @@ video{
 #video-controls {
 	position: relative;
 	margin: 0;
-	top: -42px;
-	height: 42px;
+	top: -37px;
+	height: 30px;
 	padding: 5px;
-  max-height: 30px;
 	opacity: 0;
 	-webkit-transition: opacity .3s;
 	-moz-transition: opacity .3s;
@@ -52,21 +60,11 @@ video{
 #video-container:hover #video-controls {
 	opacity: 1;
 }
-#current-time{
-  color:white;
-  height:25px;
-  line-height: 25px;
-}
-#play-pause, #current-time{
-  display: inline;
-  height:25px;
-  line-height: 25px;
-  vertical-align: middle;
-}
 button, label {
-	height: 25px;
+  outline: none;
 	min-width: 30px;
 	padding: 8px;
+  vertical-align: middle;
 	background: rgba(0,0,0,0);
 	border: 0;
 	color: #EEE;
@@ -76,12 +74,32 @@ button, label {
 	border-radius: 3px;
 }
 #play-pause {
-	background: rgba(0,0,0,0) url("icons/play-icon.png") center/15px no-repeat;
+  display: inline;
+	height: 15px;
+  line-height: 15px;
+  vertical-align: middle;
+	background: rgba(0,0,0,0) url("icons/play-icon.png") center/14px no-repeat;
+}
+#current-time{
+  font-size: .5rem;
+  color:white;
+  display: inline;
+  height:15px;
+  line-height: 15px;
+  vertical-align: middle;
 }
 #full-screen{
+  display: inline;
+	height: 15px;
+  line-height: 15px;
+  vertical-align: middle;
 	background: rgba(0,0,0,0) url("icons/fullscreen-icon.png") center/15px no-repeat;
 }
 #mute{
+  display: inline;
+	height: 15px;
+  line-height: 15px;
+  vertical-align: middle;
   background: rgba(0,0,0,0) url("icons/volume-on-icon.png") center/15px no-repeat;
 }
 .controls-right{
@@ -96,10 +114,10 @@ button:hover {
   Progress and buffered bar
 */
 #video-container:hover .buffered {
-	top: -38px;
+	top: -34px;
 }
 #video-container:hover .progress {
-	top: -41px;
+	top: -37px;
 }
 .buffered {
   height: 3px;
@@ -141,7 +159,18 @@ button:hover {
 */
 @media screen and (min-width: 768px){
   body{
-     max-width: 50%;
+     max-width: 768px;
      margin: 0 auto;
+     padding-top: 1%
+   }
+   #video-container{
+     width: 98%;
+     margin: 0 auto;
+     margin-bottom: -35px;
+     overflow: hidden;
+
+   }
+   .progress, .buffered, #video-controls{
+     max-width: 99.9%;
    }
 }

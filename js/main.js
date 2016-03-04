@@ -55,14 +55,14 @@ $(document).ready(function() {
 			// Update the button text to 'Pause'
 			$playButton.html("");
 			// background: color image position/size repeat origin clip attachment initial|inherit;
-			$playButton.css('background', 'url("icons/pause-icon.png") center/15px no-repeat');
+			$playButton.css('background', 'url("icons/pause-icon.png") center/14px no-repeat');
 		} else {
 			// Pause the video
 			$video.get(0).pause();
 
 			// Update the button text to 'Play'
 			$playButton.html("");
-			$playButton.css('background', 'url("icons/play-icon.png") center/15px no-repeat');
+			$playButton.css('background', 'url("icons/play-icon.png") center/14px no-repeat');
 		}
 	});
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
 			$video.get(0).muted = true;
 
 			// Update the button text
-			$muteButton.css('background', 'url("icons/volume-off-icon.png") center/15px no-repeat');
+			$muteButton.css('background', 'url("icons/volume-off-icon.png") center/14px no-repeat');
 		} else {
 			// Unmute the video
 			$video.get(0).muted = false;
@@ -125,13 +125,13 @@ $(document).ready(function() {
 	// Pause the video when the seek handle is being dragged
 	$('.progress').on("mousedown", function() {
 		$video.get(0).pause();
-    $playButton.css('background', 'url("icons/pause-icon.png") center/15px no-repeat');
+    $playButton.css('background', 'url("icons/play-icon.png") center/14px no-repeat');
 	});
 
 	// Play the video when the seek handle is dropped
 	$('.progress').on("mouseup", function() {
 		$video.get(0).play();
-    $playButton.css('background', 'url("icons/play-icon.png") center/15px no-repeat');
+    $playButton.css('background', 'url("icons/pause-icon.png") center/14px no-repeat');
 	});
 
   videoDom.addEventListener('progress', function() {
