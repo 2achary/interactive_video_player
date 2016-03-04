@@ -35,7 +35,6 @@ timeMap = {
 };
 
 $(document).ready(function() {
-
 	// video
 	var $video = $("#video");
 
@@ -94,20 +93,58 @@ $(document).ready(function() {
 		}
 	});
 
-	// Event listener for the seek bar
-	$('.progress').on("click", function(e) {
-		// Calculate the new time
-    var barWidth = $(this).width();
-    var parentOffset = $(this).offset();
-    var relX = e.pageX - parentOffset.left;
-    console.log(relX);
-    console.log(barWidth);
-    var barPos = (relX/barWidth) * 100;
-		var time = $video.get(0).duration * (barPos / 100);
+  var isDragging = false;
+  var isMouseDown = false;
 
-		// Update the video time
-		$video.get(0).currentTime = time;
-	});
+  $(".progress")
+  .mousedown(function() {
+    //record the mousedown event and set dragging to false
+    isDragging = false;
+    isMouseDown = true;
+    // pause the video and change the icon when the progress bar is clicked
+    $video.get(0).pause();
+    $playButton.css('background', 'url("icons/play-icon.png") center/14px no-repeat');
+  })
+  .mousemove(function(e) {
+      if (!isMouseDown) {
+        return;
+      }
+      // if it gets to here, the mouse is down and moving (dragging)
+      sDragging = true;
+
+      // update the time to match the mouse
+      var barWidth = $(this).width();
+      var parentOffset = $(this).offset();
+      var relX = e.pageX - parentOffset.left;
+      var barPos = (relX/barWidth) * 100;
+  		var time = $video.get(0).duration * (barPos / 100);
+  		$video.get(0).currentTime = time;
+      var duration =  videoDom.duration;
+
+      // update the progress bar width to match the mouse
+      if (duration > 0) {
+        $('#progress-amount').css('width', ((videoDom.currentTime / duration)*100) + "%");
+      }
+   })
+  .mouseup(function(e) {
+    // record state before flipping
+    var wasDragging = isDragging;
+    // falsify the dragging and mouse down statuses
+    isDragging = false;
+    isMouseDown = false;
+    // if there was no dragging, we still need to update the prog bar and time
+    if (!wasDragging){
+      var barWidth = $(this).width();
+      var parentOffset = $(this).offset();
+      var relX = e.pageX - parentOffset.left;
+      var barPos = (relX/barWidth) * 100;
+      var time = $video.get(0).duration * (barPos / 100);
+      // Update the video time
+      $video.get(0).currentTime = time;
+    }
+    $video.get(0).play();
+    $playButton.css('background', 'url("icons/pause-icon.png") center/14px no-repeat');
+  });
 
 	// Update the seek bar as the video plays
 	$video.on("timeupdate", function() {
@@ -120,18 +157,6 @@ $(document).ready(function() {
 		// var seconds = Math.floor(currentSeconds);
 		var timeString = prettify_duration(currentSeconds) + ' / ' + prettify_duration(dur);
 		$currentTime.html(timeString);
-	});
-
-	// Pause the video when the seek handle is being dragged
-	$('.progress').on("mousedown", function() {
-		$video.get(0).pause();
-    $playButton.css('background', 'url("icons/play-icon.png") center/14px no-repeat');
-	});
-
-	// Play the video when the seek handle is dropped
-	$('.progress').on("mouseup", function() {
-		$video.get(0).play();
-    $playButton.css('background', 'url("icons/pause-icon.png") center/14px no-repeat');
 	});
 
   videoDom.addEventListener('progress', function() {
