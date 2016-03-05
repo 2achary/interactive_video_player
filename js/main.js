@@ -110,7 +110,7 @@ $(document).ready(function() {
         return;
       }
       // if it gets to here, the mouse is down and moving (dragging)
-      sDragging = true;
+      isDragging = true;
 
       // update the time to match the mouse
       var barWidth = $(this).width();
